@@ -1,0 +1,5 @@
+config:
+  envName: dev
+  projectName: dev
+  clusterUrl: https://kubernetes.default.svc
+  targetNamespace: dev

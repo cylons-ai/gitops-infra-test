@@ -1,0 +1,5 @@
+config:
+  envName: prod
+  projectName: prod
+  clusterUrl: https://kubernetes.default.svc
+  targetNamespace: prod

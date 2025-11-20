@@ -1,0 +1,5 @@
+config:
+  envName: qa
+  projectName: qa
+  clusterUrl: https://kubernetes.default.svc
+  targetNamespace: qa
