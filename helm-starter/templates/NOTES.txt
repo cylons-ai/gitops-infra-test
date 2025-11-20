@@ -1,0 +1,7 @@
+Thank you for using the production starter!
+
+To install with custom values:
+  helm install myapp . -f values.yaml
+
+If you use a local kind cluster, set service.type: NodePort in a separate values file for local testing.
+If using Vault + External Secrets Operator, ensure you have provisioned a ClusterSecretStore named 'vault-backend'.
