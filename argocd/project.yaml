@@ -10,7 +10,9 @@ spec:
   destinations:
     - namespace: "dev"
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist: []
+  clusterResourceWhitelist:
+    - group: ""
+      kind: "Namespace"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -24,7 +26,9 @@ spec:
   destinations:
     - namespace: "qa"
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist: []
+  clusterResourceWhitelist:
+    - group: ""
+      kind: "Namespace"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -38,4 +42,6 @@ spec:
   destinations:
     - namespace: "prod"
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist: []
+  clusterResourceWhitelist:
+    - group: ""
+      kind: "Namespace"
