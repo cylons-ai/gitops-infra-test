@@ -52,7 +52,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "fullname" . }}-config
-          {{- if .Values.vault.provider | eq "externalsecrets" }}
+          {{- if and .Values.vault.enabled (eq .Values.vault.provider "externalsecrets") }}
           # Secrets are expected to be mounted/created by ExternalSecret into a k8s Secret named {{ .Values.vault.externalsecret.secretName }}
           envFrom:
             - secretRef:
