@@ -1,5 +1,5 @@
 replicaCount: 1
 image:
-  tag: dev-build-123
+  tag: latest
 deployment:
   enabled: true

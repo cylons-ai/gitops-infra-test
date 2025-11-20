@@ -1,4 +1,4 @@
-replicaCount: 4
+replicaCount: 19
 image:
   tag: latest
 deployment:
