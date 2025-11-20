@@ -8,12 +8,12 @@ spec:
     - matrix:
         generators:
           - git:
-              repoURL: https://github.com/cylons-ai/gitops-infra.git
+              repoURL: https://github.com/cylons-ai/gitops-infra-test.git
               revision: HEAD
               files:
                 - path: "environments/*/config.yaml"
           - git:
-              repoURL: https://github.com/cylons-ai/gitops-infra.git
+              repoURL: https://github.com/cylons-ai/gitops-infra-test.git
               revision: HEAD
               directories:
                 - path: "apps/*"
@@ -26,7 +26,7 @@ spec:
     spec:
       project: "{{config.projectName}}"
       source:
-        repoURL: https://github.com/cylons-ai/gitops-infra.git
+        repoURL: https://github.com/cylons-ai/gitops-infra-test.git
         targetRevision: HEAD
         path: "{{path}}"
         helm:

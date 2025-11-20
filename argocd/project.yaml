@@ -6,7 +6,7 @@ metadata:
 spec:
   description: Project for Dev Environment
   sourceRepos:
-    - "https://github.com/cylons-ai/gitops-infra.git"
+    - "https://github.com/cylons-ai/gitops-infra-test.git"
   destinations:
     - namespace: "dev"
       server: https://kubernetes.default.svc
@@ -20,7 +20,7 @@ metadata:
 spec:
   description: Project for QA Environment
   sourceRepos:
-    - "https://github.com/cylons-ai/gitops-infra.git"
+    - "https://github.com/cylons-ai/gitops-infra-test.git"
   destinations:
     - namespace: "qa"
       server: https://kubernetes.default.svc
@@ -34,7 +34,7 @@ metadata:
 spec:
   description: Project for Production Environment
   sourceRepos:
-    - "https://github.com/cylons-ai/gitops-infra.git"
+    - "https://github.com/cylons-ai/gitops-infra-test.git"
   destinations:
     - namespace: "prod"
       server: https://kubernetes.default.svc
