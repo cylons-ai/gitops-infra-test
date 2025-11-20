@@ -17,21 +17,22 @@ spec:
               revision: HEAD
               directories:
                 - path: "apps/*"
+              pathParamPrefix: app
   template:
     metadata:
-      name: "{{path.basename}}-{{config.envName}}"
+      name: "{{app.path.basename}}-{{config.envName}}"
       labels:
         env: "{{config.envName}}"
-        app: "{{path.basename}}"
+        app: "{{app.path.basename}}"
     spec:
       project: "{{config.projectName}}"
       source:
         repoURL: https://github.com/cylons-ai/gitops-infra-test.git
         targetRevision: HEAD
-        path: "{{path}}"
+        path: "{{app.path}}"
         helm:
           valueFiles:
-            - "../../environments/{{config.envName}}/values/{{path.basename}}.yaml"
+            - "../../environments/{{config.envName}}/values/{{app.path.basename}}.yaml"
       destination:
         server: "{{config.clusterUrl}}"
         namespace: "{{config.targetNamespace}}"
