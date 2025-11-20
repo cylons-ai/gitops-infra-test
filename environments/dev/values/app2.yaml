@@ -4,3 +4,5 @@ image:
   tag: latest
 deployment:
   enabled: true
+topologySpread:
+  enabled: false
