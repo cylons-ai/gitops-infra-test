@@ -1,0 +1,17 @@
+{{- if .Values.serviceMonitor.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "fullname" . }}-sm
+  labels:
+    {{- range $k,$v := .Values.serviceMonitor.additionalLabels }}
+    {{ $k }}: {{ $v }}
+    {{- end }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "fullname" . }}
+  endpoints:
+    - port: http
+      interval: 30s
+{{- end -}}

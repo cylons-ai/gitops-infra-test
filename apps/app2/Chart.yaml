@@ -1,0 +1,12 @@
+apiVersion: v2
+name: app2
+description: A production-ready Helm chart
+type: application
+version: 0.1.0
+appVersion: "1.0"
+keywords:
+  - production
+  - starter
+maintainers:
+  - name: Your Team
+    email: ops@example.com
