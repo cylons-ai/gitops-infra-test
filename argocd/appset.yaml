@@ -16,25 +16,25 @@ spec:
               repoURL: https://github.com/cylons-ai/gitops-infra.git
               revision: HEAD
               directories:
-                - path: "apps/*/*"
+                - path: "apps/*"
   template:
     metadata:
-      name: '{{path.basename}}-{{config.envName}}'
+      name: "{{path.basename}}-{{config.envName}}"
       labels:
-        env: '{{config.envName}}'
-        app: '{{path.basename}}'
+        env: "{{config.envName}}"
+        app: "{{path.basename}}"
     spec:
-      project: '{{config.projectName}}' 
+      project: "{{config.projectName}}"
       source:
         repoURL: https://github.com/cylons-ai/gitops-infra.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: "{{path}}"
         helm:
           valueFiles:
-            - '../../environments/{{config.envName}}/values/{{path.basename}}.yaml'
+            - "../../environments/{{config.envName}}/values/{{path.basename}}.yaml"
       destination:
-        server: '{{config.clusterUrl}}'
-        namespace: '{{config.targetNamespace}}'
+        server: "{{config.clusterUrl}}"
+        namespace: "{{config.targetNamespace}}"
       syncPolicy:
         automated:
           prune: true

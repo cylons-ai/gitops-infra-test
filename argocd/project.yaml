@@ -5,12 +5,12 @@ metadata:
   namespace: argocd
 spec:
   description: Project for Dev Environment
+  sourceRepos:
+    - "https://github.com/cylons-ai/gitops-infra.git"
   destinations:
-    - namespace: 'dev'
+    - namespace: "dev"
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+  clusterResourceWhitelist: []
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -19,12 +19,12 @@ metadata:
   namespace: argocd
 spec:
   description: Project for QA Environment
+  sourceRepos:
+    - "https://github.com/cylons-ai/gitops-infra.git"
   destinations:
-    - namespace: 'qa'
+    - namespace: "qa"
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+  clusterResourceWhitelist: []
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -33,9 +33,9 @@ metadata:
   namespace: argocd
 spec:
   description: Project for Production Environment
+  sourceRepos:
+    - "https://github.com/cylons-ai/gitops-infra.git"
   destinations:
-    - namespace: 'prod'
+    - namespace: "prod"
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+  clusterResourceWhitelist: []
