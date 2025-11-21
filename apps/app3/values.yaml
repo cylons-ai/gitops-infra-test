@@ -1,0 +1,21 @@
+app3:
+  nameOverride: "app3"
+  fullnameOverride: "app3"
+  replicaCount: 1
+  image:
+    repository: nginx
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    enabled: true
+    port: 80
+    type: ClusterIP
+  ingress:
+    enabled: false
+  resources: {}
+  autoscaling:
+    enabled: false
+  vault:
+    enabled: false
+  serviceMonitor:
+    enabled: false

@@ -1,0 +1,97 @@
+replicaCount: 2
+
+image:
+  repository: your-registry/your-image
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  enabled: true
+  type: ClusterIP # For kind local cluster you may want NodePort; override per environment
+  port: 80
+
+ingress:
+  enabled: false
+  className: "nginx"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 60
+  targetMemoryUtilizationPercentage: 60
+
+probes:
+  enabled: true
+  liveness:
+    path: /healthz
+    port: http
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  readiness:
+    path: /ready
+    port: http
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+networkPolicy:
+  enabled: true
+  allowFrom:
+    - namespaceSelector: {}
+
+vault:
+  enabled: false
+  # Integration recommended: External Secrets (external-secrets.io) or Vault Agent Injector
+  provider: externalsecrets # options: externalsecrets | vault-agent
+  externalsecret:
+    secretName: my-app-secret
+    # backend and data mappings provided in templates/externalsecret.yaml
+
+serviceMonitor:
+  enabled: false
+  additionalLabels: {}
+
+securityContext:
+  enabled: true
+  runAsUser: 1000
+  runAsGroup: 3000
+  fsGroup: 2000
+
+podSecurity:
+  enabled: true
+  # follow your cluster's PodSecurityPolicies / Pod Security admission
+
+priorityClassName: "system-cluster-critical"
+
+labels:
+  app.kubernetes.io/managed-by: helm
+
+# Topology spread example
+topologySpread:
+  enabled: true
+  maxSkew: 1
+  topologyKey: kubernetes.io/hostname
+  whenUnsatisfiable: DoNotSchedule
+
+# Extras
+extraEnv: []
+extraVolumes: []
+extraVolumeMounts: []

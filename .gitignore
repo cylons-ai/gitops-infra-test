@@ -1,0 +1,7 @@
+# Helm
+charts/
+*.tgz
+*.lock
+
+# Mac
+.DS_Store
