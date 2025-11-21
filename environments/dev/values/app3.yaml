@@ -3,6 +3,6 @@ app3:
   image:
     tag: latest
   deployment:
-    enabled: true
+    enabled: false
   topologySpread:
     enabled: false
