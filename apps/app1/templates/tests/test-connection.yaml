@@ -6,6 +6,8 @@ metadata:
     {{- include "app1.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   containers:
     - name: wget
