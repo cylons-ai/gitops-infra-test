@@ -1,4 +1,6 @@
 replicaCount: 2
+deployment:
+  enabled: true
 
 image:
   repository: your-registry/your-image

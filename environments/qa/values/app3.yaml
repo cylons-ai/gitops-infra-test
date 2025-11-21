@@ -1,5 +1,5 @@
 app3:
-  replicaCount: 3
+  replicaCount: 2
   image:
     tag: latest
   deployment:
