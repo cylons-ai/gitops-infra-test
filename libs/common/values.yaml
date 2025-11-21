@@ -40,12 +40,12 @@ autoscaling:
 probes:
   enabled: true
   liveness:
-    path: /healthz
+    path: /
     port: http
     initialDelaySeconds: 30
     periodSeconds: 10
   readiness:
-    path: /ready
+    path: /
     port: http
     initialDelaySeconds: 5
     periodSeconds: 10
@@ -72,7 +72,7 @@ serviceMonitor:
   additionalLabels: {}
 
 securityContext:
-  enabled: true
+  enabled: false
   runAsUser: 1000
   runAsGroup: 3000
   fsGroup: 2000
