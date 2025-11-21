@@ -1,3 +1,4 @@
+{{- if .Values.deployment.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -75,3 +76,4 @@ spec:
             matchLabels:
               app: {{ include "fullname" . }}
       {{- end }}
+{{- end }}
