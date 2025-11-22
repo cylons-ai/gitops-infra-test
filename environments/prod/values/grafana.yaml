@@ -1,0 +1,4 @@
+# Grafana values for prod
+grafana:
+  # In prod, you should use a secret for the password, but for now we set a placeholder
+  adminPassword: "strongpassword"

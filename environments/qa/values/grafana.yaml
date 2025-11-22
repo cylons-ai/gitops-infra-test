@@ -1,0 +1,3 @@
+# Grafana values for qa
+grafana:
+  adminPassword: "admin"
