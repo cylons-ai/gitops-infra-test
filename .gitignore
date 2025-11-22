@@ -2,6 +2,7 @@
 charts/
 *.tgz
 *.lock
+!Chart.lock
 
 # Mac
 .DS_Store
